@@ -6,7 +6,7 @@
             "price" : 4300,
             "quantity" :600,
             "selected":true,
-            "availible" : true
+            "available" : true
         },
         {
             "id" : 2,
@@ -14,7 +14,7 @@
             "price" : 300,
             "quantity" :100,
             "selected":true,
-            "availible" : true
+            "available" : true
         },
         {
             "id" : 3,
@@ -22,7 +22,7 @@
             "price" : 1200,
             "quantity" :100,
             "selected":true,
-            "availible" : true
+            "available" : true
         }
     ]
 }
