@@ -18,6 +18,9 @@ export class ProductsComponent implements OnInit {
   // - AppDataState as type and $ indicates a Observable variable
   _products$? : Observable<AppDataState<Product[]>>
 
+  //-creation of DataStateEnum object
+  readonly DataStateEnum = DataStateEnum;
+
    //Injection of my Service Classe
   constructor(private ProductsService : ProductsService) { }
 
@@ -38,7 +41,7 @@ export class ProductsComponent implements OnInit {
   onGetAllProductsWithErrorManagement()
   {
    this._products$ = this.ProductsService.getAllProducts().pipe(
-      map((data)=>({dataState: DataStateEnum.LAODED, data:data})),
+      map((data)=>({dataState: DataStateEnum.LOADED, data:data})),
       startWith({dataState:DataStateEnum.LOADING}),
       catchError(err=>of({dataState: DataStateEnum.ERROR, ErrorMessage : err.message}))
       

@@ -42,30 +42,46 @@
 </ng-container>
  
 <!-- //if products variable change to become a Observable Variable, then its vew side representation also change// -->
-<ng-container *ngIf="(_products$ |async)?.data as _prods">
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Selected</th>
-            <th scope="col">Available</th>
-          </tr>
-        </thead>
-        <tbody>
-            <ng-container *ngFor="let item of _prods ">
-                <tr>
-                    <th scope="row">{{item.id}}</th>
-                    <td>{{item.name}}</td>
-                    <td>{{item.price}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.selected}}</td>
-                    <td>{{item.available}}</td>
-                  </tr>
-            </ng-container>
-        </tbody>
-    </table>
+<ng-container *ngIf="(_products$ |async)  as _prods" [ngSwitch]="_prods.dataState">
+    <ng-container>
+
+        <ng-container *ngSwitchCase="DataStateEnum.LOADING">         
+            LOADING ....
+        </ng-container>
+
+        <ng-container *ngSwitchCase="DataStateEnum.LOADING">         
+            <div class="alert-danger">
+             {{_prods.ErrorMessage}}
+            </div>      
+       </ng-container>
+
+       <ng-container *ngSwitchCase="DataStateEnum.LOADED"> 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Selected</th>
+                        <th scope="col">Available</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let item of _prods.data ">
+                        <tr>
+                            <th scope="row">{{item.id}}</th>
+                            <td>{{item.name}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.selected}}</td>
+                            <td>{{item.available}}</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </ng-container>
+    </ng-container>
+
 </ng-container> 
 

@@ -20,7 +20,8 @@ export class ProductsService {
     /*return this.http.get("http://localhost:3000/products") */
 
     /*the best way to proceed is to put this url in the environment file*/
-    let host = environment.host
+    //let host = environment.host//
+    let host = environment.unreachableHost
 
     return this.http.get<Product[]>(host + "/products")
 
