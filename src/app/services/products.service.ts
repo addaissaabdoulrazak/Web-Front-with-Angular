@@ -20,23 +20,27 @@ export class ProductsService {
     /*return this.http.get("http://localhost:3000/products") */
 
     /*the best way to proceed is to put this url in the environment file*/
-    //let host = environment.host//
-    let host = environment.unreachableHost
+    
+    //-->let host = environment.host//
+    //-->let host = environment.unreachableHost//
+         //Simulation of two possible scenarios with a probability test
+             //*you can change the probability 0.2 to 0.8 if you wan to test it
+    let host =Math.random()>0.2?environment.host:environment.unreachableHost;
 
     return this.http.get<Product[]>(host + "/products")
 
   }
 
   //get Selected
-  getSelectedProduct()
+  getSelectedProduct():Observable<Product[]>
   {
     let host = environment.host
-    return this.http.get(host +"/products?selected=true")
+    return this.http.get<Product[]>(host +"/products?selected=true")
   }
 
   //get Available 
-  getAvailableProduct(){
+  getAvailableProduct(): Observable<Product[]>{
     let host=environment.host
-    return this.http.get(host + "/products?Available=true")
+    return this.http.get<Product[]>(host + "/products?available=true")
   }
 }

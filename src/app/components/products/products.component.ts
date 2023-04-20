@@ -47,4 +47,31 @@ export class ProductsComponent implements OnInit {
       
     )
   }
+
+
+
+  onGetAvailableProduct(){
+    this._products$ = this.ProductsService.getAvailableProduct().pipe(
+
+      //nous avons une syntax d'initiateur d'object (observez bien), vous pouvez ajouter autant de propriété que vous voulez cela ne génèrera pas de problème
+      map(data =>({dataState: DataStateEnum.LOADED, data:data, })),
+      startWith({dataState: DataStateEnum.LOADING}),
+      catchError(err =>of({dataState:DataStateEnum.ERROR, ErrorMessage : err.message}))
+    )
+  }
+
+  onGetSelectedProduct(){
+   this._products$ =this.ProductsService.getSelectedProduct().pipe(
+    map(data=>({dataState :DataStateEnum.LOADED, data:data})),
+    startWith({dataState : DataStateEnum.LOADING}),
+    catchError(err => of({dataState : DataStateEnum.ERROR, ErrorMessage : err.message}))
+
+   )
+  }
+
+
+
+
+
+
 }

@@ -5,12 +5,11 @@
         
     </li>
     <li>
-        <button type="button" class="btn btn-outline-info ml-2">Selected</button>
+        <button type="button" class="btn btn-outline-info ml-2" (click)="onGetSelectedProduct()">Selected</button>
         
     </li>
     <li>
-        <button type="button" class="btn btn-outline-info">Available</button>
-        
+        <button type="button" class="btn btn-outline-info" (click)="onGetAvailableProduct()">Available</button>
     </li>
   </ul>
 </nav>
@@ -43,7 +42,7 @@
  
 <!-- //if products variable change to become a Observable Variable, then its vew side representation also change// -->
 <ng-container *ngIf="(_products$ |async)  as _prods" [ngSwitch]="_prods.dataState">
-    <ng-container>
+
 
         <ng-container *ngSwitchCase="DataStateEnum.LOADING">         
             LOADING ....
@@ -81,7 +80,6 @@
                 </tbody>
             </table>
         </ng-container>
-    </ng-container>
 
 </ng-container> 
 
