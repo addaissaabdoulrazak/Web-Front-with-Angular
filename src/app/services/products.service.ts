@@ -43,4 +43,38 @@ export class ProductsService {
     let host=environment.host
     return this.http.get<Product[]>(host + "/products?available=true")
   }
+
+
+  //search Products
+  searchProducts(keyword : string): Observable<Product[]>{
+    let host = environment.host;
+
+    //Warning! name_like is required for search
+    return this.http.get<Product[]>(host + "/products?name_like="+keyword)
+  }
+
+
+  //Selected Product
+  select(product : Product):Observable<Product>{   
+    let host = environment.host; 
+
+        // for the put methode i will use 
+          //-host représente l'URL du serveur où vous souhaitez envoyer votre requête HTTP.      
+          //-product.id représente l'identifiant unique du produit que vous souhaitez mettre à jour sur le serveur.
+          //-product est l'objet que vous souhaitez envoyer dans la requête et qui contient les modification. Il s'agit probablement d'un objet de type Product.
+        //Warning! : I don't have a web Api(Controlleurs Asp.net for Exampl) here, i only have a DataBase whose purpose is to store the data, so i use a simple DataBase
+          product.selected= !product.selected
+    //
+    return this.http.put<Product>(host+"/products/"+product.id, product)
+  }
+
+
+  //HttpDelete(Product->Id)
+
+  Delete(product : Product): Observable<void>{
+      let host = environment.host;
+    return this.http.delete<void>(host + "/products/"+product.id)
+
+  }
+
 }
