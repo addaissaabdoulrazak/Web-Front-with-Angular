@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './components/products/products.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProductAddComponent } from './components/product-add/product-add.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,10 @@ const routes: Routes = [
   },
   {
     path:'', component: HomeComponent
+  },
+  //if you want the Add methode to works then 
+  {
+    path:'Add-new-Product', component: ProductAddComponent
   }
 ];
 

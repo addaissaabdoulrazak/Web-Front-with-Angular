@@ -8,13 +8,15 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductAddComponent } from './components/product-add/product-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,

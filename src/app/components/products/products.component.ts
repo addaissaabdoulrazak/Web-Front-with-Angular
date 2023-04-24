@@ -4,6 +4,7 @@ import { Product } from '../../models/product';
 import { from, Observable, of } from 'rxjs';
 import { catchError, map, startWith } from 'rxjs/operators';
 import { AppDataState, DataStateEnum } from 'src/app/state/product';
+import { Router } from '@angular/router';
 
 
 
@@ -23,7 +24,7 @@ export class ProductsComponent implements OnInit {
   readonly DataStateEnum = DataStateEnum;
 
    //-Injection of my Service Classe
-  constructor(private ProductsService : ProductsService) { }
+  constructor(private ProductsService : ProductsService, private router: Router) { }
 
   ngOnInit(): void {
     
@@ -108,5 +109,14 @@ export class ProductsComponent implements OnInit {
    })
   }
 
+  //Add A new Product
+  onNewProduct()
+  {
+     // you need to perform a redirection here if user click on new button
+      //for this you will need  to inject a Router object into the constructor
+
+      this.router.navigateByUrl('/Add-new-Product')
+
+  }
 
 }
