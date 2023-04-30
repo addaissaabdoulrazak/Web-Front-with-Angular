@@ -7,6 +7,14 @@
       "quantity": 100,
       "selected": true,
       "available": false
+    },
+    {
+      "id": 2,
+      "name": "bananas",
+      "price": "14",
+      "quantity": "12",
+      "selected": true,
+      "available": true
     }
   ]
 }

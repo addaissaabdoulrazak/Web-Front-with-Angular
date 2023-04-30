@@ -1,0 +1,39 @@
+{{_ProductformGroup.value | json}}
+<div *ngIf="_ProductformGroup">
+    <form [formGroup]="_ProductformGroup" >
+
+      <!-- normaly for Updated we must have a field ID  -->
+      <div class="form-group">
+        <label class="form-label">ID</label>
+        <input type="text" class="form-control" formControlName="id">
+      </div>
+        <div class="mb-3">
+          <label  class="form-label">Product Name</label>
+          <input type="text" class="form-control" formControlName="name" [ngClass]="{'is-invalid': submitted && _ProductformGroup.controls.name.errors}">  
+           <div *ngIf="submitted && _ProductformGroup.controls.name.errors" class="invalid-feedback">
+                 
+            <!-- warning!: here we have use required but as validator because it's the only one mentionned as validator(see typscript file -> onInit), we can use anothers   -->
+                <span *ngIf="_ProductformGroup.controls.name.errors.required"> Name is Required</span>
+           
+           </div>
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Price</label>
+          <input class="form-control" formControlName ="price">
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Qiuantity</label>
+            <input class="form-control"  formControlName="quantity">
+          </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" formControlName="available">
+          <label class="form-check-label" for="exampleCheck1">Available</label>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" formControlName="selected">
+            <label class="form-check-label" for="exampleCheck1">Selected</label>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="onUpdate()">Update</button>
+      </form>
+</div>
+

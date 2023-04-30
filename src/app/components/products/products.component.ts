@@ -118,5 +118,12 @@ export class ProductsComponent implements OnInit {
       this.router.navigateByUrl('/Add-new-Product')
 
   }
+  
+  // Edit Product
+  onEditproduct(item: Product)
+  {
+    //slash is not neccessary
+      this.router.navigateByUrl('Edit-Product/'+ item.id)
+  }
 
 }

@@ -14,6 +14,9 @@
     <li>
         <button type="button" class="btn btn-outline-info" (click)="onNewProduct()">New Product</button>
     </li>
+    <!-- <li>
+        <button type="button" class="btn btn-outline-info" (click)="onEditproduct()">Edit</button>
+    </li> -->
   </ul>
   <!-- Search bar have to be inside an item ul -->
   <ul class="navbar navbar-nav ms-auto">
@@ -73,6 +76,12 @@
                             <td>
                                 <button type="button" class="btn btn-outline-danger" (click)="onDelete(item)">
                                     <span class="fa fa-trash-o">Delete</span>
+                                </button>
+                          
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-outline-info" (click)="onEditproduct(item)">
+                                    <span class="fa fa-edit-o">Edit</span>
                                 </button>
                           
                             </td>

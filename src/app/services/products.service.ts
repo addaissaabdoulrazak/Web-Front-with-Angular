@@ -78,11 +78,25 @@ export class ProductsService {
   }
 
   // [HttpPost]
-  // Save(product : Product) : Observable<Product>
-  // {
-  //   let host =environment.host;
+  Save(product : Product) : Observable<Product>
+  {
+    let host =environment.host;
 
-  //   return this.http.post<Product>(host + "/products/" +product)
-  // }
+    return this.http.post<Product>( host + "/products",product)
+  }
 
+  //[HttpGet('{id}')]
+ 
+  getProductById(id : number): Observable<Product>{
+   
+    let host =environment.host
+    return this.http.get<Product>(host + "/products/"+id)
+  }
+  
+  //[HttpPut({id})]
+   Update(item : Product) : Observable<Product>
+  {
+    let host = environment.host;
+     return this.http.put<Product>(host +"/products/"+item.id, item)
+  }
 }
