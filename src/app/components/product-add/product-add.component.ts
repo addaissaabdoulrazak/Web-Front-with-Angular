@@ -27,6 +27,7 @@ export class ProductAddComponent implements OnInit {
     })
   }
 
+  
   onSaveProduct()
   {
     this.submitted =true;

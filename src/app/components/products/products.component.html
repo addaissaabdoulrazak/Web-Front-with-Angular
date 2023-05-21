@@ -1,37 +1,15 @@
-<nav class="navbar bg-dark  navbar-expand-sm" data-bs-theme="dark">
-  <ul class="navbar navbar-nav ">
-    <li>
-        <button type="button" class="btn btn-outline-info ml-2" (click)="onGetAllProductsWithErrorManagement()">All</button>
-        
-    </li>
-    <li>
-        <button type="button" class="btn btn-outline-info ml-2" (click)="onGetSelectedProduct()">Selected</button>
-        
-    </li>
-    <li>
-        <button type="button" class="btn btn-outline-info" (click)="onGetAvailableProduct()">Available</button>
-    </li>
-    <li>
-        <button type="button" class="btn btn-outline-info" (click)="onNewProduct()">New Product</button>
-    </li>
-    <!-- <li>
-        <button type="button" class="btn btn-outline-info" (click)="onEditproduct()">Edit</button>
-    </li> -->
-  </ul>
-  <!-- Search bar have to be inside an item ul -->
-  <ul class="navbar navbar-nav ms-auto">
-       <li>
-            <form  #f ="ngForm" (ngSubmit)="onSearch(f.value)" class="form-inline">
-                <div class="form-group">
-                <input ngModel name="keyword" type="text"  id="" placeholder="type Keyword">
-                <button class="btn btn-sm btn-outline-info">
-                    <span class="fa fa-search" aria-hidden="true"></span>
-                </button>
-                </div>
-            </form>
-       </li>
-  </ul>
-</nav>
+<!------------------------------------------------------------------------------------------------------------------------------
+    [Remarks ] : here this component products is huge(too large) we will see how we can decompose it.
+
+    among the good pratice of dev is to decompose your component. when you develop it is necessary to decompose your component
+    into small components to facilitate maintenance and testing but also to facilitate reuse.
+    
+    1- Products component will be decomposed in Products-list + products-nav-bar
+    
+    2- Path : Products = Products/products-list + Products/Products-nav-bar 
+------------------------------------------------------------------------------------------------------------------------------->
+
+<app-products-nav-bar></app-products-nav-bar> 
 <!-- //if products variable change to become a Observable Variable, then its vew side representation also change// -->
 <ng-container *ngIf="(_products$ |async)  as _prods" [ngSwitch]="_prods.dataState">
 
@@ -90,6 +68,5 @@
                 </tbody>
             </table>
         </ng-container>
-
 </ng-container> 
 
