@@ -1,3 +1,13 @@
+export enum ProductActionsTypes{
+  
+  GET_ALL_PRODUCTS = "[Product] Get All Products" ,
+  GET_SELECTED_PRODUCTS = "[Product] Get Selected Products",
+  GET_AVAILABLE_PRODUCTS = "[Product] Get Available Products",
+  SEARCH_PRODUCTS = "[Product] Search Products",
+  NEW_PRODUCT = "[Product] New Products",
+
+}
+
 
 export enum DataStateEnum{
     LOADING,

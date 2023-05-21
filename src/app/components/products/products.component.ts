@@ -56,7 +56,7 @@ export class ProductsComponent implements OnInit {
     this._products$ = this.ProductsService.getAvailableProduct().pipe(
 
       //nous avons une syntax d'initiateur d'object (observez bien), vous pouvez ajouter autant de propriété que vous voulez cela ne génèrera pas de problème
-        // - qui suit tjr le syntème clé-valeur
+        // - qui suit tjr le système clé-valeur
       map(data =>({dataState: DataStateEnum.LOADED, data:data, })),
       startWith({dataState: DataStateEnum.LOADING}),
       catchError(err =>of({dataState:DataStateEnum.ERROR, ErrorMessage : err.message}))
