@@ -5,16 +5,24 @@
       "name": "Computer",
       "price": 6300,
       "quantity": 100,
-      "selected": true,
+      "selected": false,
       "available": false
     },
     {
-      "id": 2,
-      "name": "bananas",
-      "price": "14",
-      "quantity": "12",
+      "id": 4,
+      "name": "Asus 2.0",
+      "price": 40000,
+      "quantity": 120,
       "selected": true,
       "available": true
+    },
+    {
+      "name": "Fujustsu",
+      "price": "2000",
+      "quantity": "800",
+      "selected": true,
+      "available": true,
+      "id": 5
     }
   ]
 }

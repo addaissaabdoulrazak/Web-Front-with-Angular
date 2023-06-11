@@ -1,0 +1,30 @@
+<!-- pour pallier a notre problème (Object is possibly undefined ) a ce niveau il faut juste et toujours vous assurer 
+    de verifier votre objet avant de les Afficher. Ceci est une bonne Pratique assurer vous que vos Object on des Valeurs avans
+    de les Afficher  -->
+<ng-container *ngIf="product">
+    <tr>
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.quantity}}</td>
+        <td>{{product.selected}}</td>
+        <td>{{product.available}}</td>
+        <td>
+            <button (click)="onSelect(product)"  [ngClass]="product.selected?'btn-success':'btn-danger'" class="btn btn-sm">
+                <span *ngIf="product.selected">unselected</span>
+                <span *ngIf="!product.selected">Select</span>
+            </button>               
+        </td>
+        <td>
+            <button type="button" class="btn btn-outline-danger" (click)="onDelete(product)">
+                <span class="fa fa-trash-o">Delete</span>
+            </button>
+      
+        </td>
+        <td>
+            <button type="button" class="btn btn-outline-info" (click)="onEditproduct(product)">
+                <span class="fa fa-edit-o">Edit</span>
+            </button>
+        </td>
+    </tr>
+</ng-container>

@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path:'', component: HomeComponent
   },
-  //if you want the Add methode to works then 
+  //if you want that Add methode works then 
   {
     path:'Add-new-Product', component: ProductAddComponent
   },

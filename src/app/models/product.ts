@@ -6,3 +6,10 @@ export interface Product {
     selected:boolean,
     available : boolean
 }
+
+/* only for a test */
+// export interface Personne {
+//     id : number,
+//     fistName : string,
+//     lastName : string
+// }

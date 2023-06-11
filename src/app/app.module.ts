@@ -12,6 +12,7 @@ import { ProductAddComponent } from './components/product-add/product-add.compon
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { ProductListComponent } from './components/products/product-list/product-list.component';
 import { ProductsNavBarComponent } from './components/products/products-nav-bar/products-nav-bar.component';
+import { ProductItemComponent } from './components/products/product-list/product-item/product-item.component';
 
 
 @NgModule({
@@ -24,6 +25,8 @@ import { ProductsNavBarComponent } from './components/products/products-nav-bar/
     ProductEditComponent,
     ProductListComponent,
     ProductsNavBarComponent,
+    ProductItemComponent,
+
 
   ],
   imports: [

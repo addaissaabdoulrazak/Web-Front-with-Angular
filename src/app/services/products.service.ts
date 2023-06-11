@@ -25,10 +25,10 @@ export class ProductsService {
     //-->let host = environment.unreachableHost//
          //Simulation of two possible scenarios with a probability test
              //*you can change the probability 0.2 to 0.8 if you wan to test it
-    let host =Math.random()>0.2?environment.host:environment.unreachableHost;
-
+   let host =Math.random()>0.2?environment.host:environment.unreachableHost;
+   //let host = environment.host;
+  
     return this.http.get<Product[]>(host + "/products")
-
   }
 
   //get Selected

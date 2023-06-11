@@ -1,1 +1,36 @@
-<p>product-list works!</p>
+<!-- if you work with "ngSwitchCase" you don't choise you have to use ng-container to display data state (loading, load, error).
+however, if you work with "ngIf" or if you want to work with ngIf instead of "ngSwitchCase" you can use ng-template -->
+
+<!-- Attention : _products$ is an Observable variable whose type is AppDataState that is an Interface don't forget. -->
+<ng-container *ngIf="(_childItemIput$|async)  as _prods" [ngSwitch]="_prods.dataState">
+
+     <!-- here, DataStateEnum is declared in ts file (see file) -->
+    <ng-container *ngSwitchCase="DataStateEnum.LOADING">         
+    <!-- if you want you can use a loading animation here, search on Internet -->
+        LOADING ....
+    </ng-container>
+
+    <ng-container *ngSwitchCase="DataStateEnum.ERROR">         
+        <div class="text-danger">
+         {{_prods.ErrorMessage}}
+        </div>      
+   </ng-container>
+
+   <ng-container *ngSwitchCase="DataStateEnum.LOADED"> 
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Selected</th>
+                    <th scope="col">Available</th>
+                </tr>
+            </thead>
+            <tbody>
+                <app-product-item [product]="item"   (productItemOutputEventEmitter)="onActiveEvent($event)"   *ngFor="let item of _prods.data " style="display: contents;"></app-product-item>
+            </tbody>    
+        </table>
+    </ng-container>
+</ng-container> 
