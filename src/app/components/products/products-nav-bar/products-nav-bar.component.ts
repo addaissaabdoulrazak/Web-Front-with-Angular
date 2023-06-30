@@ -43,7 +43,7 @@ export class ProductsNavBarComponent implements OnInit {
 
   //Search Method
    //- Warning! : DataForm variable => To indicate not one, but all Data from formulaire present in a form 
-  //you don't a choise if you want that work you have to use "any" as type, beacuse keyword is a value of attribut name and it's not a string.
+  //you don't have  a choise if you want that work you have to use "any" as type, beacause keyword is a value of attribut name and it's not a string.
   // use descriptive variable, here, i already know through this variable that methodes (onsearch) is used at level of formular
   //generally this is represented through the use << the Html tag(form) >>
    onSearch(DataForm: any){

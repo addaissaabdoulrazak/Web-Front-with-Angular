@@ -12,7 +12,8 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-
+ 
+   
   //Get All
 
   getAllProducts():Observable<Product[]>{
@@ -62,7 +63,7 @@ export class ProductsService {
           //-host représente l'URL du serveur où vous souhaitez envoyer votre requête HTTP.      
           //-product.id représente l'identifiant unique du produit que vous souhaitez mettre à jour sur le serveur.
           //-product est l'objet que vous souhaitez envoyer dans la requête et qui contient les modification. Il s'agit probablement d'un objet de type Product.
-        //Warning! : I don't have a web Api(Controlleurs Asp.net for Exampl) here, i only have a DataBase whose purpose is to store the data, so i use a simple DataBase
+        //Warning! : I don't have a web Api(Controlleurs Asp.net for Exampl) here, i only have a DataBase whose purpose is to store the data, so I use a simple DataBase
           product.selected= !product.selected
     //
     return this.http.put<Product>(host+"/products/"+product.id, product)
