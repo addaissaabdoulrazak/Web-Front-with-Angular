@@ -15,10 +15,28 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
-  products? : Product[];
+/**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */   
+                       // Explication de Pourquoi Nous utilisons les Variable( products? : Product[];) et ( _products$? : Observable<AppDataState<Product[]>>)
+  /**  
+   * Remarks :  une application est constituée d'un ensemble de variables que definit le developpeurs pour contenir les données qui permettent de faire fonctionner la app,
+   * ---------  sans la presence de ses données et donc de ces variables, la app ne servirait à rien ou du moins ne fonctionnera pas du tout car l'algorithme utilisé.
+   *            pour faire la logique de fonctionnement de la app puise ses données dans ces variables, ces variables sont maintenues en mémoire. 
+   *            et en fonction de ce que la app veut accomplir, du moins en fonction de l'interaction des utilisateurs avec la app, 
+   *            le contenu de ses variables est costament modifié pour respecter
+                l'algorithme qui sert à resoudre justement le but de la app. 
+                
+                Rappellez vous : l'essence de toute application c'est les données et toute application qui n'en utilise pas n'en est pas une!*/
+                
+                
+                products? : Product[];
  
-  // - AppDataState as type and $ indicates a Observable variable
-  _products$? : Observable<AppDataState<Product[]>>
+                // - AppDataState as type and <<$>> indicates a Observable variable
+                _products$? : Observable<AppDataState<Product[]>>
+              
+/**------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+    
+              
+
 
   //-creation of DataStateEnum object
   readonly DataStateEnum = DataStateEnum;
@@ -120,7 +138,7 @@ export class ProductsComponent implements OnInit {
   onNewProduct()
   {
      // you need to perform a redirection here, if user click on new button
-    //for this you will need  to inject a Router object into the constructor
+    //for this you  need to inject a Router object into the constructor
 
       this.router.navigateByUrl('/Add-new-Product')
 

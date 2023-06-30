@@ -1,7 +1,7 @@
 <!-- if you work with "ngSwitchCase" you don't choise you have to use ng-container to display data state (loading, load, error).
 however, if you work with "ngIf" or if you want to work with ngIf instead of "ngSwitchCase" you can use ng-template -->
 
-<!-- Attention : _products$ is an Observable variable whose type is AppDataState that is an Interface don't forget. -->
+<!-- Attention : _products$ is an Observable variable whose type is AppDataState, that is an Interface don't forget. -->
 <ng-container *ngIf="(_childItemIput$|async)  as _prods" [ngSwitch]="_prods.dataState">
 
      <!-- here, DataStateEnum is declared in ts file (see file) -->

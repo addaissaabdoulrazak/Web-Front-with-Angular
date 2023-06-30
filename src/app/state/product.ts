@@ -14,21 +14,19 @@ export enum ProductActionsTypes{
 
 
 /** 
-  * an Evenement represents one(one and only one) action. the concern is that we have differents type of Action(several see Above)
+  * an Evenement represents one(one and only one) action. the concern is that we have differents type of Action(several, see Above)
   *You have to encapsulate things. you encapsulate all differents type of Action into a class(Enum).
 
   *@payload type is "any" because "any" is used to represent a variable or parameter that can have any type
-  *@payload is an parameter can be either a string, Object(Product) if insert request either number(Id) if delete request, string if research 
+  *@payload is an parameter can be either a string, Object(Product) whether insert request, either number(Id) whether delete request, string whether research 
 
 **/
 
-
+//Nous pouvons transité d'etat  en fonction des interactions de l'utilisateur, des événements ou des appels à des services externes.
+// Ainsi, nous allons passer par une Trasition d'état a travers les évenements. 
 export interface ActionEvent{
-
-  type : ProductActionsTypes,
-
-
-  payload ?: any
+type : ProductActionsTypes,
+payload ?: any
   
 }
 
@@ -45,11 +43,8 @@ export enum DataStateEnum{
    -or two attribut
    -or three attribut */
 export interface AppDataState<T>{
-
   dataState? : DataStateEnum,
-
   data? : T
-
   ErrorMessage?:string
 }
 

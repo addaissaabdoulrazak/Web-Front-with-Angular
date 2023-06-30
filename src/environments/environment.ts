@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  //le port permet de determiner chaque appliction de manière unique
   host : "http://localhost:3000",
 
   //inaccessible URL
